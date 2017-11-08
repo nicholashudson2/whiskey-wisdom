@@ -1,0 +1,22 @@
+.center-row {
+    width: 100%;
+    
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: row;
+
+    padding: 10px;
+    margin-top: 200px;
+    color: black;
+}
+
+.left-sidebar {
+    flex: 1 1 auto;
+    
+    align-items: top;
+    justify-content: left;
+}
+
+.content-panel {
+    flex: 9 9 auto;
+}
