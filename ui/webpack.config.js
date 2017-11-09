@@ -3,19 +3,16 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-const extractCSS = new ExtractTextPlugin('css/[name]-css.css')
-const extractLESS = new ExtractTextPlugin('css/[name]-less.css')
-
 const devtool = 'source-map'
 
 const entry = {
   vendor: './js/vendor.js',
-  main: ['babel-polyfill', './js/app.js']
+  app: './js/app.js'
 }
 
 const output = {
-  filename: '[name].js',
-  path: '/static/resources/'
+  path: '/dist/',
+  filename: 'wiskey_wisdom_[name].js'
 }
 
 const extensions = [
@@ -27,16 +24,26 @@ const extensions = [
 const rules = [{
   test: /\.js$/,
   exclude: /node_modules/,
-  use: ['ng-annotate-loader', 'babel-loader']
+  use: [{
+    loader: 'ng-annotate-loader', 
+    loader: 'babel-loader'
+  }]
 }, {
   test: /\.css$/,
   include: /css/,
-  use: ['style-loader', 'css-loader']
-}, {
-  test: /\.less$/,
-  include: /css/,
-  use: extractLESS.extract(['style-loader', 'less-loader'])
-}, {
+  use: ExtractTextPlugin.extract({
+    fallback: 'style-loader',
+    use: [{
+      loader: 'css-loader'
+    }]
+  })
+}
+// , {
+//   test: /\.less$/,
+//   include: /css/,
+//   use: extractLESS.extract(['style-loader', 'less-loader'])
+// }
+, {
   test: /\.html$/,
   include: /js/,
   exclude: /node_modules/,
@@ -52,8 +59,7 @@ const rules = [{
 }]
 
 const plugins = [
-  extractCSS,
-  extractLESS,
+  new ExtractTextPlugin('[name].css'),
   new HtmlWebpackPlugin({
     hash: true,
     template: './static/index.html',
