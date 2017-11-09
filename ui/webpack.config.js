@@ -3,6 +3,9 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+const extractCSS = new ExtractTextPlugin('css/[name]-css.css')
+const extractLESS = new ExtractTextPlugin('css/[name]-less.css')
+
 const devtool = 'source-map'
 
 const entry = {
@@ -10,47 +13,47 @@ const entry = {
   main: ['babel-polyfill', './js/app.js']
 }
 
-// TODO: Change path to reflect the naming conventions of our Spring API
 const output = {
   filename: '[name].js',
-  path: '../src/main/resources/static/'
+  path: '/static/resources/'
 }
 
 const extensions = [
-  '',
   '.js',
   '.css',
   '.html'
 ]
 
-const loaders = [{
+const rules = [{
   test: /\.js$/,
   exclude: /node_modules/,
-  loaders: ['ng-annotate', 'babel']
+  use: ['ng-annotate-loader', 'babel-loader']
 }, {
   test: /\.css$/,
   include: /css/,
-  loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+  use: ['style-loader', 'css-loader']
 }, {
   test: /\.less$/,
-  loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
+  include: /css/,
+  use: extractLESS.extract(['style-loader', 'less-loader'])
 }, {
   test: /\.html$/,
   include: /js/,
   exclude: /node_modules/,
-  loaders: ['ngtemplate', 'html']
+  use: ['ngtemplate-loader', 'html-loader']
 }, {
   test: /\.html$/,
   include: /static/,
   exclude: /node_modules/,
-  loader: 'html'
+  use: 'html-loader'
 }, {
   test: /\.(ico|jpg|png|eot|svg|ttf|woff|woff2)$/,
-  loader: 'url?limit=10000'
+  use: 'url-loader'
 }]
 
 const plugins = [
-  new ExtractTextPlugin('[name].css'),
+  extractCSS,
+  extractLESS,
   new HtmlWebpackPlugin({
     hash: true,
     template: './static/index.html',
@@ -66,7 +69,7 @@ module.exports = {
     extensions
   },
   module: {
-    loaders
+    rules
   },
   plugins
 }
