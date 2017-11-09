@@ -1,1 +1,1 @@
-import './modules/whiskeywisdom.module.js'
+import './modules/whiskeywisdom.module'

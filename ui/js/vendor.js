@@ -1,8 +1,6 @@
 window.jQuery = require('jquery')
 window.angular = require('angular')
 
-require('bootstrap')
-
 require('angular-aria')
 require('angular-animate')
 require('angular-material')
@@ -10,6 +8,8 @@ require('angular-messages')
 require('angular-ui-router')
 
 require('angular-material/angular-material.css')
+
+require('bootstrap/dist/css/bootstrap.css')
 
 require("../css/styles.css")
 require("../css/header.css")
