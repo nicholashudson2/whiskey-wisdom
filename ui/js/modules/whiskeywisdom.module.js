@@ -72,20 +72,6 @@ angular
       delete $rootScope.error
     })
 
-    // Is this necessary?
-    $rootScope.hasRole = function (role) {
-
-      if ($rootScope.user === undefined) {
-        return false
-      }
-
-      if ($rootScope.user.roles[role] === undefined) {
-        return false
-      }
-
-      return $rootScope.user.roles[role]
-    }
-
     // Sets the logout function in the utilities service
     $rootScope.logout = function () {
       delete $rootScope.user

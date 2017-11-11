@@ -1,14 +1,11 @@
-/* @ngInject */
-class LoginController {
+const loginController = ['loginService', '$state', function (loginService, $state) {
 
-    constructor(loginService, $state) {
-        this.loginService = loginService
-        this.$state = $state
-        this.rememberMe = false
-    }
+    this.loginService = loginService
+    this.$state = $state
+    this.rememberMe = false
 
-    login() {
-        LoginService.user.authenticate($.param({
+    this.login = () => {
+        LoginService.user().authenticate($.param({
             username: this.username,
             password: this.password
         }), function (authenticationResult) {
@@ -17,16 +14,19 @@ class LoginController {
             if (this.rememberMe) {
                 $cookieStore.put('accessToken', accessToken)
             }
+            // Add user id arg
             this.getUser()
         });
     };
 
-    getUser() {
-        loginService.user().get(function (user) {
+    this.getUser = () => {
+        loginService.user().retrieve($.param({
+            username: this.username
+        }), function (user) {
             $rootScope.user = user
         })
     }
 
-}
+}]
 
-export default LoginController
+export default loginController
