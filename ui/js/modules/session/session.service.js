@@ -1,11 +1,8 @@
-/* @ngInject */
-class SessionService {
-    
-    constructor($http, apiUrl) {
-        this.$http = $http
-        this.apiUrl = apiUrl
-    }
-    
-}
+const sessionService = ['$http', 'apiUrl', function ($http, apiUrl) {
 
-export default SessionService
+    this.$http = $http
+    this.apiUrl = apiUrl
+
+}]
+
+export default sessionService

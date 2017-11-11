@@ -1,11 +1,8 @@
-/* @ngInject */
-class ListController {
+const listController = ['listService', '$state', function (listService, $state) {
 
-    constructor(listService, $state) {
-        this.listService = listService
-        this.$state = $state
-    }
+    this.listService = listService
+    this.$state = $state
 
-}
+}]
 
-export default ListController
+export default listController

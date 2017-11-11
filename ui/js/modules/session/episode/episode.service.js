@@ -1,11 +1,8 @@
-/* @ngInject */
-class EpisodeService {
-    
-    constructor($http, apiUrl) {
-        this.$http = $http
-        this.apiUrl = apiUrl
-    }
-    
-}
+const episodeService = ['$http', 'apiUrl', function ($http, apiUrl) {
 
-export default EpisodeService
+    this.$http = $http
+    this.apiUrl = apiUrl
+
+}]
+
+export default episodeService

@@ -1,11 +1,8 @@
-/* @ngInject */
-class ListService {
-    
-    constructor($http, apiUrl) {
-        this.$http = $http
-        this.apiUrl = apiUrl
-    }
-    
-}
+const listService = ['$http', 'apiUrl', function ($http, apiUrl) {
 
-export default ListService
+    this.$http = $http
+    this.apiUrl = apiUrl
+
+}]
+
+export default listService

@@ -1,11 +1,8 @@
-/* @ngInject */
-class SessionController {
+const sessionController = ['sessionService', '$state', function (sessionService, $state) {
 
-    constructor(sessionService, $state) {
-        this.sessionService = sessionService
-        this.$state = $state
-    }
+    this.sessionService = sessionService
+    this.$state = $state
 
-}
+}]
 
-export default SessionController
+export default sessionController
