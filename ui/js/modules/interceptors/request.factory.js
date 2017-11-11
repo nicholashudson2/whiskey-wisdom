@@ -1,5 +1,4 @@
-/* @ngInject */
-const request = function ($q, $rootScope) {
+const request = ['$q', '$rootScope', function ($q, $rootScope) {
     return {
         'request': function (config) {
             const isRestCall = config.url.indexOf('rest') == 0
@@ -9,6 +8,6 @@ const request = function ($q, $rootScope) {
             return config || $q.when(config)
         }
     }
-}
+}]
 
 export default request

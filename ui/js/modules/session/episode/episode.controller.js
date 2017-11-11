@@ -1,11 +1,8 @@
-/* @ngInject */
-class EpisodeController {
+const episodeController = ['episodeService', '$state', function (episodeService, $state) {
 
-    constructor(episodeService, $state) {
-        this.episodeService = episodeService
-        this.$state = $state
-    }
+    this.episodeService = episodeService
+    this.$state = $state
 
-}
+}]
 
-export default EpisodeController
+export default episodeController

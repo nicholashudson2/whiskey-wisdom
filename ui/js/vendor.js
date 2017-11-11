@@ -6,6 +6,7 @@ require('angular-animate')
 require('angular-material')
 require('angular-messages')
 require('angular-ui-router')
+require('angular-cookies')
 
 require('angular-material/angular-material.css')
 

@@ -1,5 +1,4 @@
-/* @ngInject */
-const responseError = function ($q, $rootScope, $state) {
+const responseError = ['$q', '$rootScope', '$state', function ($q, $rootScope, $state) {
     return {
         'responseError': function (rejection) {
 
@@ -13,6 +12,6 @@ const responseError = function ($q, $rootScope, $state) {
             return $q.reject(rejection)
         }
     }
-}
+}]
 
 export default responseError

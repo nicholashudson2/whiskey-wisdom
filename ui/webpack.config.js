@@ -23,11 +23,7 @@ const extensions = [
 
 const rules = [{
   test: /\.js$/,
-  exclude: /node_modules/,
-  use: [{
-    loader: 'ng-annotate-loader', 
-    loader: 'babel-loader'
-  }]
+  exclude: /node_modules/
 }, {
   test: /\.css$/,
   include: /css/,

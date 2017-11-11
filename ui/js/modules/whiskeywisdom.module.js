@@ -1,8 +1,7 @@
 /**
  * Imports modules containing state information
  */
-
-import interceptors from './factory/interceptors/interceptors.module'
+import interceptors from './interceptors/interceptors.module'
 import login from './login/login.module'
 
 import session from './session/session.module'
@@ -17,8 +16,12 @@ import apiUrl from './api.url'
 export default
 angular
   .module('whiskeywisdom', [
-    'ui.router',
+    'ngAria',
+    'ngAnimate',
+    'ngMaterial',
+    'ngMessages',
     'ngCookies',
+    'ui.router',
 
     interceptors,
     login,
@@ -58,7 +61,7 @@ angular
       $httpProvider.interceptors.push('request')
     }
   ])
-  .run(function ($rootScope, $cookieStore, loginController) {
+  .run(['$rootScope', '$cookieStore', function ($rootScope, $cookieStore) {
 
     $rootScope.$on('$stateChangeStart', function (event) {
       // Checks here to see if a user is logged in etc
@@ -95,10 +98,10 @@ angular
     var accessToken = $cookieStore.get('accessToken')
     if (accessToken !== undefined) {
       $rootScope.accessToken = accessToken
-      loginController.getUser()
+      // loginController.getUser()
     }
 
     $rootScope.initialized = true
-  })
+  }])
   .constant('apiUrl', apiUrl)
   .name

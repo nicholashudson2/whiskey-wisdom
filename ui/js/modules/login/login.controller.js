@@ -1,14 +1,13 @@
 /* @ngInject */
 class LoginController {
-    
-    rememberMe = false;
 
     constructor(loginService, $state) {
         this.loginService = loginService
         this.$state = $state
+        this.rememberMe = false
     }
 
-    login = () => {
+    login() {
         LoginService.user.authenticate($.param({
             username: this.username,
             password: this.password
@@ -22,8 +21,8 @@ class LoginController {
         });
     };
 
-    getUser = () => {
-        loginService.user.get(function (user) {
+    getUser() {
+        loginService.user().get(function (user) {
             $rootScope.user = user
         })
     }
