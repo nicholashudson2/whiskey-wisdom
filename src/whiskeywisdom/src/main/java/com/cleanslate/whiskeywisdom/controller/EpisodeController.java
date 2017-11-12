@@ -16,8 +16,8 @@ import com.cleanslate.whiskeywisdom.repository.EpisodeRepository;
 import com.cleanslate.whiskeywisdom.service.EpisodeService;
 
 @RestController
-@RequestMapping("episode")
 @CrossOrigin
+@RequestMapping("episode")
 public class EpisodeController {
 
 	EpisodeService episodeService;
