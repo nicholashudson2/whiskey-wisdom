@@ -1,9 +1,14 @@
-<div class="center-row">
-    <div class="left-sidebar">
-        <p>LEFT SIDEBAR GOES HERE</p>
-    </div>
-
-    <div class="content-panel">
-        <p>CONTENT GOES HERE</p>
+<div class="list-panel">
+    <div class="episode-entry" ng-repeat="episode in $ctrl.listOfEpisodes">
+        <div class="episode-header">
+            <div class="episode-title"> {{ episode.title }} </div>
+            <div class="episode-buttons">
+                <div class="episode-button"> ^ </div>
+                <div class="episode-button"> v </div>
+                <div class="episode-button"> - </div>
+                <div class="episode-button"> X </div>
+            </div>
+        </div>
+        <div class="episode-synopsis"> {{ episode.synopsis }} </div>
     </div>
 </div>

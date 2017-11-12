@@ -1,31 +1,34 @@
-const loginController = ['loginService', '$state', function (loginService, $state) {
+const loginController = ['loginService', '$state', '$rootScope', function (loginService, $state, $rootScope) {
 
     this.loginService = loginService
     this.$state = $state
     this.rememberMe = false
 
     this.login = () => {
-        LoginService.user().authenticate($.param({
+        loginService.user().authenticate($.param({
             username: this.username,
             password: this.password
         }), function (authenticationResult) {
-            const accessToken = authenticationResult.token
-            $rootScope.accessToken = accessToken
-            if (this.rememberMe) {
-                $cookieStore.put('accessToken', accessToken)
+            delete this.password
+            if (authenticationResult.token) {
+                $rootScope.accessToken = authenticationResult.token
+                $rootScope.user = authenticationResult.user
+                $rootScope.role = authenticationResult.user.role
+
+                if (this.rememberMe) {
+                    $cookieStore.put('accessToken', accessToken)
+                }
+
+                $state.go('session.list')
+                // loginService.user().retrieve($.param({
+                //     username: this.username
+                // }), function (user) {
+                //     $rootScope.user = user
+                //     loginService.role = user.role
+                // })
             }
-            // Add user id arg
-            this.getUser()
         });
     };
-
-    this.getUser = () => {
-        loginService.user().retrieve($.param({
-            username: this.username
-        }), function (user) {
-            $rootScope.user = user
-        })
-    }
 
 }]
 

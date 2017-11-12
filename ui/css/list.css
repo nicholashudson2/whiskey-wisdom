@@ -1,22 +1,78 @@
-.center-row {
+.list-panel {
+    width: 90%;
+    min-width: 800px;
+
+    padding: 30px 0px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.episode-entry {
+    height: 150px;
     width: 100%;
-    
-    flex: 1 1 auto;
+    min-width: 800px;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border: 1px solid black;
+
+    background-color: rgb(41, 18, 9);
+}
+
+.episode-header {
+    height: 30px;
+    width: 100%;
+
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 
-    padding: 10px;
-    margin-top: 200px;
-    color: black;
+    color: white;
 }
 
-.left-sidebar {
-    flex: 1 1 auto;
+.episode-title {
+    height: 100%;
+    width: 400px;
+
+    background-color: rgba(248, 241, 241, 0.082);
+}
+
+.episode-buttons {
+    height: 100%;
+    width: 200px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
     
-    align-items: top;
-    justify-content: left;
+    background-color: rgba(248, 241, 241, 0.082);
 }
 
-.content-panel {
-    flex: 9 9 auto;
+.episode-button {
+    height: 25px;
+    width: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: black;
+}
+
+.episode-synopsis {
+    height: 110px;
+    width: 100%;
+
+    border: 1px solid black;
+
+    background: white;
 }

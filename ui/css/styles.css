@@ -1,25 +1,31 @@
 body {
-    width: 100vw;
-    height: 100vh;
+    height: auto;
+    width: auto;
 
     padding: 0;
     margin: 0;
     
-}
-
-.container {
-    width: 100vw;
-    height: 100vh;
-
-    display: flex;
-    flex-direction: column;
-
-    padding: 0;
-    justify-content: center;
-    align-items: center;
     background-image: url("../img/whiskeyWisdomBackground.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    position: fixed;
+    
+    overflow: auto;
+}
+
+body::-webkit-scrollbar {
+    width: 1em;
+}
+
+body::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.00);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: radial-gradient(rgba(187, 180, 180, 0.91), rgba(68, 66, 66, 0.164), rgba(255, 255, 255, 0));
+    outline: 1px solid #D46E09;
+}
+
+body::-webkit-scrollbar-corner {
+    background: rgba(0, 0, 0, 0.00);
 }
