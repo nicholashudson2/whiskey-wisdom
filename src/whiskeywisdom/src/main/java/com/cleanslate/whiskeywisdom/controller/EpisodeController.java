@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,7 +17,6 @@ import com.cleanslate.whiskeywisdom.service.EpisodeService;
 
 @RestController
 @RequestMapping("episode")
-@CrossOrigin
 public class EpisodeController {
 
 	EpisodeService episodeService;
@@ -27,23 +27,29 @@ public class EpisodeController {
 		this.episodeRepo = episodeRepo;
 	}
 	
-	@GetMapping("all")
+	@GetMapping("/all")
 	public List<EpisodeDto> getEpisodes() {
 		return episodeService.getAllEpisodesByActiveTrue();
 	}
 	
-	@GetMapping("admin/all")
+	@GetMapping("/admin")
 	public List<EpisodeDto> adminGetEpisodes() {
 		return episodeService.getAll();
 	}
 	
-	@GetMapping("@{id}")
+	@GetMapping("/@{id}")
 	public EpisodeDto findById(@PathVariable long id) {
 		return episodeService.findById(id);
 	}
 	
-	@PostMapping
+	@PostMapping("/new")
 	public EpisodeDto create(@RequestBody EpisodeDto episode) {
+		episodeService.create(episode);
+		return episodeService.findById(episode.getId());
+	}
+	
+	@PatchMapping("/@{id}")
+	public EpisodeDto update(@PathVariable long id, @RequestBody EpisodeDto episode) {
 		episodeService.create(episode);
 		return episodeService.findById(episode.getId());
 	}
