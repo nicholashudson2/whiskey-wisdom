@@ -52,9 +52,16 @@ angular
         component: 'episodeComponent'
       }
 
+      // const postState = {
+      //   name: 'session.post',
+      //   url: '/post',
+      //   component: 'postComponent'
+      // }
+
       $stateProvider.state(sessionState)
                     .state(listState)
                     .state(episodeState)
+                    // .state(postState)
 
       $urlRouterProvider.otherwise('/session/list')
 
@@ -62,11 +69,14 @@ angular
       $httpProvider.interceptors.push('request')
     }
   ])
-  .run(['$rootScope', '$cookieStore', 'loginService', function ($rootScope, $cookieStore, loginService) {
+  .run(['$rootScope', '$state', '$cookieStore', 'loginService', function ($rootScope, $state, $cookieStore, loginService) {
 
-    $rootScope.$on('$stateChangeStart', function (event) {
-      // Checks here to see if a user is logged in etc
-      // Can use event.preventDefault() to prevent a state change from happening
+    $rootScope.$on('$stateChangeStart', function (event, toState) {
+      // If a user tries to naviate to a post creation state they are validated
+      if(toState.name === 'session.post' && loginService.role !== 'admin') {
+        event.preventDefault();
+        $state.go('session.list')
+      }
     })
 
     $rootScope.$on('$viewContentLoaded', function (event) {
@@ -77,15 +87,22 @@ angular
     $rootScope.logout = function () {
       delete $rootScope.user
       delete $rootScope.accessToken
-      $cookieeStor.remove('accessToken')
+      $cookieStore.remove('accessToken')
+      $rootScope.role = 'guest'
       $state.reload()
     }
 
-    /* Try getting valid user from cookie or go to login page */
+    // Try getting valid user from cookie
     var accessToken = $cookieStore.get('accessToken')
     if (accessToken !== undefined) {
       $rootScope.accessToken = accessToken
-      // loginController.getUser()
+
+      loginService.user().retrieve(function (user) {
+        $rootScope.user = user
+        $rootScope.role = user.role
+      })
+    } else {
+      $rootScope.role = 'guest'
     }
 
     $rootScope.initialized = true

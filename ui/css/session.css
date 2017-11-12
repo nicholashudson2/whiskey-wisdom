@@ -1,0 +1,23 @@
+.session-panel {
+    height: auto;
+    width: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.content-panel {
+    width: 80vw;
+    min-width: 880px;
+
+    margin-bottom: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(75, 65, 65, 0.822);
+    border-radius: 10px;
+}

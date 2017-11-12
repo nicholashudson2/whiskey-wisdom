@@ -14,6 +14,7 @@ require('angular-material/angular-material.css')
 require('bootstrap/dist/css/bootstrap.css')
 
 require("../css/styles.css")
+require("../css/session.css")
 require("../css/header.css")
 require("../css/list.css")
 require("../css/episode.css")
