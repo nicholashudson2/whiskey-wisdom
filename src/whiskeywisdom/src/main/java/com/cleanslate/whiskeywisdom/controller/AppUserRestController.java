@@ -21,7 +21,7 @@ import com.cleanslate.whiskeywisdom.entity.AppUser;
 import com.cleanslate.whiskeywisdom.repository.AppUserRepository;
 
 @RestController
-@RequestMapping(value = "/api")
+@RequestMapping(value = "admin")
 @CrossOrigin
 public class AppUserRestController {
 
