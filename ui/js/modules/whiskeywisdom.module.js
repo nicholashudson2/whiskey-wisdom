@@ -21,6 +21,7 @@ angular
     'ngMaterial',
     'ngMessages',
     'ngCookies',
+    'ngResource',
     'ui.router',
 
     interceptors,
@@ -61,7 +62,7 @@ angular
       $httpProvider.interceptors.push('request')
     }
   ])
-  .run(['$rootScope', '$cookieStore', function ($rootScope, $cookieStore) {
+  .run(['$rootScope', '$cookieStore', 'loginService', function ($rootScope, $cookieStore, loginService) {
 
     $rootScope.$on('$stateChangeStart', function (event) {
       // Checks here to see if a user is logged in etc
@@ -76,7 +77,7 @@ angular
     $rootScope.logout = function () {
       delete $rootScope.user
       delete $rootScope.accessToken
-      $cookieStore.remove('accessToken')
+      $cookieeStor.remove('accessToken')
       $state.reload()
     }
 

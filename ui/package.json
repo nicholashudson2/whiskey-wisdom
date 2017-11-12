@@ -39,6 +39,7 @@
     "angular-cookies": "^1.6.6",
     "angular-material": "^1.1.1",
     "angular-messages": "^1.5.8",
+    "angular-resource": "^1.6.6",
     "angular-ui-router": "^1.0.3",
     "bootstrap": "^4.0.0-alpha.6",
     "css-loader": "^0.25.0",
