@@ -73,7 +73,7 @@ angular
 
     $rootScope.$on('$stateChangeStart', function (event, toState) {
       // If a user tries to naviate to a post creation state they are validated
-      if(toState.name === 'session.post' && loginService.role !== 'admin') {
+      if(toState.name === 'session.post' && $rootScope.role !== 'admin') {
         event.preventDefault();
         $state.go('session.list')
       }
