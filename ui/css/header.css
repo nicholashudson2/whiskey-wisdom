@@ -1,22 +1,36 @@
 .header {
-    width: 100%;
-    height: 220px;
+    width: 20%;
+    height: 100%;
 
     display: flex;
 
-    align-items: center;
+    align-items: top;
     justify-content: center;
     padding: 10px;
     margin: 0;
 
     top: -1px;
-    position: sticky;
+    position: fixed;
 }
 
 .logo {
-    height: 100%;
-    width: 200px;
+    height: 250px;
+    width: 250px;
     
     background-image: url("/img/whiskeyWisdomLogo.png");
-    background-size: 200px;
+    background-size: 250px;
+    background-repeat: none;
+}
+
+.iframe {
+    height: calc(100vh - 290px);
+    width: 18%;
+    /* height: 100rem; */
+
+    display: flex;
+    flex: 3 1 auto;
+
+    top: 260px;
+    position: fixed;
+    border-radius: 5px;
 }
