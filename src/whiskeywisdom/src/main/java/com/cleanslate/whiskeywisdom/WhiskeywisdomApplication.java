@@ -29,7 +29,7 @@ public class WhiskeywisdomApplication {
 //                .forCodeGeneration(true)
                 .select()
                 .apis(RequestHandlerSelectors.any())
-                .paths(PathSelectors.ant("/episode/*"))
+                .paths(PathSelectors.any())
                 .build();
     }
 

@@ -28,20 +28,22 @@ public class EpisodeController {
 		this.episodeRepo = episodeRepo;
 	}
 	
+	
+	// Update to check for valid access token. If valid, return all non-deleted posts. If invalid/null, return all active & non-deleted posts.
 	@GetMapping("/all")
 	public List<EpisodeDto> getEpisodes() {
 		return episodeService.getAllEpisodesByActiveTrue();
 	}
 	
-	@GetMapping("/admin")
-	public List<EpisodeDto> adminGetEpisodes() {
-		return episodeService.getAll();
-	}
+//	@GetMapping("/admin")
+//	public List<EpisodeDto> adminGetEpisodes() {
+//		return episodeService.getAll();
+//	}
 	
-	@GetMapping("/@{id}")
-	public EpisodeDto findById(@PathVariable long id) {
-		return episodeService.findById(id);
-	}
+//	@GetMapping("/@{id}")
+//	public EpisodeDto findById(@PathVariable long id) {
+//		return episodeService.findById(id);
+//	}
 	
 	@PostMapping("/new")
 	public EpisodeDto create(@RequestBody EpisodeDto episode) {
@@ -54,4 +56,8 @@ public class EpisodeController {
 		episodeService.create(episode);
 		return episodeService.findById(episode.getId());
 	}
+	
+	// TODO: DeleteMapping to toggle deleted to true.
+	
+	// TODO: DeleteMapping to toggle active to false.
 }

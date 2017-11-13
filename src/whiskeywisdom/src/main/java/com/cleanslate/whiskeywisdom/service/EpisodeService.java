@@ -2,8 +2,6 @@ package com.cleanslate.whiskeywisdom.service;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.springframework.stereotype.Service;
 
 import com.cleanslate.whiskeywisdom.dto.EpisodeDto;
@@ -33,8 +31,7 @@ public class EpisodeService {
 	public EpisodeDto findById(long id) {
 		return episodeMapper.toDto(episodeRepo.findById(id));
 	}
-	
-	@Transactional
+
 	public EpisodeDto create(EpisodeDto episode) {
 		Episode modifiedEpisode = episodeRepo.findById(episode.getId());
 		if (modifiedEpisode != null) {
