@@ -65,8 +65,7 @@ angular
 
       $urlRouterProvider.otherwise('/session/list')
 
-      $httpProvider.interceptors.push('responseError')
-      $httpProvider.interceptors.push('request')
+      $httpProvider.interceptors.push('interceptorFactory')
     }
   ])
   .run(['$rootScope', '$state', '$cookieStore', 'loginService', function ($rootScope, $state, $cookieStore, loginService) {
@@ -88,7 +87,8 @@ angular
       delete $rootScope.user
       delete $rootScope.accessToken
       $cookieStore.remove('accessToken')
-      $rootScope.role = 'guest'
+      $rootScope.roles = []
+      $rootScope.roles.push('ROLE_GUEST')
       $state.reload()
     }
 
@@ -99,10 +99,11 @@ angular
 
       loginService.user().retrieve(function (user) {
         $rootScope.user = user
-        $rootScope.role = user.role
+        $rootScope.roles = user.roles
       })
     } else {
-      $rootScope.role = 'guest'
+      $rootScope.roles = []
+      $rootScope.roles.push('ROLE_GUEST')
     }
 
     $rootScope.initialized = true

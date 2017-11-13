@@ -13,7 +13,7 @@ const loginController = ['loginService', '$state', '$rootScope', function (login
             if (authenticationResult.token) {
                 $rootScope.accessToken = authenticationResult.token
                 $rootScope.user = authenticationResult.user
-                $rootScope.role = authenticationResult.user.role
+                $rootScope.roles = authenticationResult.user.roles
 
                 if (this.rememberMe) {
                     $cookieStore.put('accessToken', accessToken)

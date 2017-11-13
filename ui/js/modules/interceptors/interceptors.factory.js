@@ -1,5 +1,11 @@
-const responseError = ['$q', '$rootScope', '$state', function ($q, $rootScope, $state) {
+const interceptorFactory = ['$q', '$rootScope', function ($q, $rootScope) {
     return {
+        'request': function (config) {
+            if (angular.isDefined($rootScope.accessToken)) {
+                config.headers['Whiskey-Token'] = $rootScope.accessToken
+            }
+            return config || $q.when(config)
+        },
         'responseError': function (rejection) {
 
             if (rejection.status == 401) {
@@ -14,4 +20,4 @@ const responseError = ['$q', '$rootScope', '$state', function ($q, $rootScope, $
     }
 }]
 
-export default responseError
+export default interceptorFactory
