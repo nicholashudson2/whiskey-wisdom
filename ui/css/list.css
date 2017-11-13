@@ -1,19 +1,19 @@
 .list-panel {
-    width: 90%;
-    min-width: 800px;
+    /* width: 90%; */
+    min-width: 620px;
 
-    padding: 30px 0px;
+    margin-bottom: 30px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .episode-entry {
     height: 150px;
-    width: 100%;
-    min-width: 800px;
+    width: 90%;
+    /* min-width: 800px; */
 
     margin-top: 10px;
     margin-bottom: 10px;
