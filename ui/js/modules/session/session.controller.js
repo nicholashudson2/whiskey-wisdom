@@ -22,7 +22,7 @@ const sessionController = ['sessionService', '$state', '$window', function (sess
         });
     }
 
-    sessionInitializer()
+    // sessionInitializer()
 }]
 
 export default sessionController
