@@ -9,10 +9,10 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    
-    overflow: auto;
-}
 
+    overflow: hidden;
+}
+/* 
 body::-webkit-scrollbar {
     width: 1em;
 }
@@ -28,4 +28,4 @@ body::-webkit-scrollbar-thumb {
 
 body::-webkit-scrollbar-corner {
     background: rgba(0, 0, 0, 0.00);
-}
+} */
