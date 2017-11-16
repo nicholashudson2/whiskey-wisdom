@@ -1,15 +1,15 @@
 <div class="list-panel">
-    <div class="episode-entry" ng-repeat="episode in $ctrl.listOfEpisodes">
-        <div class="episode-header">
-            <div class="episode-title"> {{ episode.title }} </div>
-            <div class="episode-buttons">
-                <div class="episode-button"> E </div>
-                <div class="episode-button"> ^ </div>
-                <div class="episode-button"> v </div>
-                <div class="episode-button"> - </div>
-                <div class="episode-button"> X </div>
+    <div class="list-entry" ng-repeat="article in $ctrl.listOfArticles">
+        <div class="article-header">
+            <div class="article-title"> {{ article.title }} </div>
+            <div class="article-buttons">
+                <div class="article-button" ng-click="$ctrl.editArticle(article)"> E </div>
+                <div class="article-button" ng-click="$ctrl.moveArticle($index, 'up')"> ^ </div>
+                <div class="article-button" ng-click="$ctrl.moveArticle($index, 'down')"> v </div>
+                <div class="article-button" ng-click="$ctrl.deactivateArticle($index)"> - </div>
+                <div class="article-button" ng-click="$ctrl.deleteArticle($index)"> X </div>
             </div>
         </div>
-        <div class="episode-synopsis"> {{ episode.synopsis }} </div>
+        <div class="entry-synopsis" ng-click="$ctrl.viewArticle(article)"> {{ article.synopsis }} </div>
     </div>
 </div>
