@@ -12,6 +12,13 @@
     position: fixed;
 }
 
+.logo-background {
+    height: 250px;
+    width: 250px;
+
+    background: radial-gradient(rgba(231, 221, 221, 0.671), rgba(177, 169, 169, 0.205), rgba(255, 230, 230, 0),rgba(255, 230, 230, 0));
+}
+
 .logo {
     height: 250px;
     width: 250px;
