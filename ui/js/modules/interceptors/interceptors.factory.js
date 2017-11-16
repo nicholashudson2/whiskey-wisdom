@@ -12,7 +12,7 @@ const interceptorFactory = ['$q', '$rootScope', function ($q, $rootScope) {
                 $rootScope.logout()
             } else {
                 $rootScope.error = rejection.config.method + " on " + 
-                                        rejection.config.url + " failed with status " + rejection.status
+                                        rejection.config.url + "failed with status " + rejection.status
             }
 
             return $q.reject(rejection)

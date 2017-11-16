@@ -1,6 +1,7 @@
 window.jQuery = require('jquery')
 window.angular = require('angular')
 
+// import 'bootstrap'
 require('angular-aria')
 require('angular-animate')
 require('angular-material')
