@@ -25,6 +25,7 @@ export default
       'ngCookies',
       'ngResource',
       'ui.router',
+      'ezfb',
 
       interceptors,
       login,
@@ -35,8 +36,8 @@ export default
       sessionFacebook,
       sessionTwitter
     ])
-    .config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
-      function ($stateProvider, $urlRouterProvider, $httpProvider) {
+    .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'ezfbProvider',
+      function ($stateProvider, $urlRouterProvider, $httpProvider, ezfbProvider) {
 
         const sessionState = {
           abstract: true,
@@ -82,12 +83,19 @@ export default
           .state(facebookState)
           .state(twitterState)
 
-        $urlRouterProvider.otherwise('/session/list')
+        $urlRouterProvider.otherwise('/session/facebook')
 
         $httpProvider.interceptors.push('interceptorFactory')
+
+        // ezfb settings
+        ezfbProvider.setInitParams({
+          appId: 'whiskey-wisdom',
+          version: 'v2.4'
+        })
       }
     ])
-    .run(['$rootScope', '$state', '$cookieStore', 'loginService', function ($rootScope, $state, $cookieStore, loginService) {
+    .run(['$rootScope', '$state', '$cookieStore', 'loginService', '$window',
+      function ($rootScope, $state, $cookieStore, loginService, $window) {
 
       $rootScope.$on('$stateChangeStart', function (event, toState) {
         // If a user tries to naviate to a post creation state they are validated
@@ -126,6 +134,15 @@ export default
       }
 
       $rootScope.initialized = true
+      
+      // const initializeFacebook = function (d, s, id) {
+      //   var js, fjs = d.getElementsByTagName(s)[0];
+      //   if (d.getElementById(id)) return;
+      //   js = d.createElement(s); js.id = id;
+      //   js.src = 'https://connect.facebook.net/en_US/sdk.js';
+      //   fjs.parentNode.insertBefore(js, fjs);
+      // }
+      // initializeFacebook(document, 'script', 'facebook-jssdk')
     }])
     .constant('apiUrl', apiUrl)
     .name

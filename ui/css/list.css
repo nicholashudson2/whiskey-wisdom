@@ -1,17 +1,19 @@
 .list-panel {
-    height: 100vh;
+    height: auto;
     width: 100%;
+    
     min-width: 620px;
-
-    padding-top: 5%;
+    min-height:100%;
 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    
+    background: rgba(32, 17, 8, 0.616);
 }
 
-.episode-entry {
+.list-entry {
     height: 150px;
     min-height: 150px;
     width: 95%;
@@ -25,56 +27,14 @@
 
     border: 1px solid black;
 
-    background-color: rgb(41, 18, 9);
+    background: linear-gradient(rgb(41, 38, 37), black, black, black);
 }
 
-.episode-header {
-    height: 30px;
-    min-height: 30px;
+.entry-synopsis {
+    height: 115px;
     width: 100%;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    background: linear-gradient(white, rgb(175, 174, 174));
 
-    color: white;
-}
-
-.episode-title {
-    height: 100%;
-    width: 400px;
-
-    background-color: rgba(248, 241, 241, 0.082);
-}
-
-.episode-buttons {
-    height: 100%;
-    width: 200px;
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    
-    background-color: rgba(248, 241, 241, 0.082);
-}
-
-.episode-button {
-    height: 25px;
-    width: 25px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: black;
-}
-
-.episode-synopsis {
-    height: 110px;
-    width: 100%;
-
-    border: 1px solid black;
-
-    background: white;
+    cursor: pointer;
 }
