@@ -6,7 +6,8 @@ import login from './login/login.module'
 
 import session from './session/session.module'
   import sessionList from './session/list/list.module'
-  import sessionEpisode from './session/episode/episode.module'
+  import sessionArticle from './session/article/article.module'
+  import sessionNewPost from './session/new-post/newPost.module'
 
 import apiUrl from './api.url'  
 
@@ -28,7 +29,8 @@ angular
     login,
     session,
     sessionList,
-    sessionEpisode
+    sessionArticle,
+    sessionNewPost
   ])
   .config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
     function ($stateProvider, $urlRouterProvider, $httpProvider) {
@@ -46,22 +48,22 @@ angular
         component: 'listComponent'
       }
 
-      const episodeState = {
-        name: 'session.episode',
-        url: '/episode',
-        component: 'episodeComponent'
+      const articleState = {
+        name: 'session.article',
+        url: '/article',
+        component: 'articleComponent'
       }
 
-      // const postState = {
-      //   name: 'session.post',
-      //   url: '/post',
-      //   component: 'postComponent'
-      // }
+      const newPostState = {
+        name: 'session.new-post',
+        url: '/new-post',
+        component: 'newPostComponent'
+      }
 
       $stateProvider.state(sessionState)
                     .state(listState)
-                    .state(episodeState)
-                    // .state(postState)
+                    .state(articleState)
+                    .state(newPostState)
 
       $urlRouterProvider.otherwise('/session/list')
 
