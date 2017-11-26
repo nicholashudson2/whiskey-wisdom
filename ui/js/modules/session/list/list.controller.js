@@ -27,6 +27,12 @@ const listController = ['listService', '$state', '$rootScope', function (listSer
         }
     ]
 
+    this.getAllArticles = () => {
+        this.listService.getActiveArticles().then((result) => {
+            this.listOfArticles = result.data;
+        })
+    }
+
     this.viewArticle = (article) => {
         $rootScope.selectedArticle = article
         $state.go('session.article')

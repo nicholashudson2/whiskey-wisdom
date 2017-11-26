@@ -71,21 +71,45 @@
     width: 100%;
 }
 
-.twitter-background {
+.social-media-background {
     height: auto;
     width: 100%;
+    max-height: vh;
 
-    min-height:100%;
+    display: flex; 
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: space-between;
+}
+
+.twitter-background {
+    height: auto;
+    min-width: 280px;
+    width: 500px;
+    
+    flex: 1 1 auto;
+
+    max-height:100%;
+    display: flex;
+    justify-content: center;
 
     background: rgba(32, 17, 8, 0.616);
 }
 
+.twitter-timeline {
+    max-width: 500px;
+    min-width: 500px;
+}
+
 .facebook-background {
     height: auto;
-    min-width: 100%;
-    width: 100%;
+    min-width: 280px;
+    width: 500px;
 
-    min-height:100%;
+    flex: 1 1 auto;
+
+    max-height:100%;
     display: flex;
     justify-content: center;
 
