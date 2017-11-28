@@ -1,6 +1,6 @@
 .list-panel {
     height: auto;
-    width: 100%;
+    width: calc(100vw - 300px);
     
     min-width: 620px;
     min-height: calc(100vh - 20px);
