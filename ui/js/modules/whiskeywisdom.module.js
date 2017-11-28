@@ -8,8 +8,6 @@ import session from './session/session.module'
 import sessionList from './session/list/list.module'
 import sessionArticle from './session/article/article.module'
 import sessionNewPost from './session/new-post/newPost.module'
-import sessionFacebook from './session/facebook/facebook.module'
-import sessionTwitter from './session/twitter/twitter.module'
 import '../script.js'
 import apiUrl from './api.url'
 
@@ -33,9 +31,7 @@ export default
       session,
       sessionList,
       sessionArticle,
-      sessionNewPost,
-      sessionFacebook,
-      sessionTwitter
+      sessionNewPost
     ])
     .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'ezfbProvider',
       function ($stateProvider, $urlRouterProvider, $httpProvider, ezfbProvider) {
@@ -71,18 +67,11 @@ export default
           component: 'loginComponent'
         }
 
-        const twitterState = {
-          name: 'session.twitter',
-          url: '/twitter',
-          component: 'twitterComponent'
-        }
-
         $stateProvider.state(sessionState)
           .state(listState)
           .state(articleState)
           .state(newPostState)
           .state(loginState)
-          .state(twitterState)
 
         $urlRouterProvider.otherwise('/session/login')
 
