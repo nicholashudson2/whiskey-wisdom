@@ -16,7 +16,6 @@
 
     margin-left: 15px;
     margin-right: 15px;
-    /* margin-bottom: 20px; */
 
     display: flex;
     flex-direction: row;
@@ -40,78 +39,4 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-}
-
-.content-tabs {
-    height: 30px;
-    width: 100%;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.content-tab {
-    height: 100%;
-    width: calc(100% / 3);
-
-    display: flex;
-    justify-content: center;
-
-    color: white;
-    background: rgba(32, 17, 8, 0.616);
-
-    cursor: pointer;
-
-    border-radius: 30px 30px 2px 2px;
-}
-
-.tab-display {
-    height: calc(100% - 30px);
-    width: 100%;
-}
-
-.social-media-background {
-    height: auto;
-    width: 100%;
-    max-height: vh;
-
-    display: flex; 
-    flex-direction: row;
-
-    justify-content: center;
-    align-items: space-between;
-}
-
-.twitter-background {
-    height: auto;
-    min-width: 280px;
-    width: 500px;
-    
-    flex: 1 1 auto;
-
-    max-height:100%;
-    display: flex;
-    justify-content: center;
-
-    background: rgba(32, 17, 8, 0.616);
-}
-
-.twitter-timeline {
-    max-width: 500px;
-    min-width: 500px;
-}
-
-.facebook-background {
-    height: auto;
-    min-width: 280px;
-    width: 500px;
-
-    flex: 1 1 auto;
-
-    max-height:100%;
-    display: flex;
-    justify-content: center;
-
-    background: rgba(32, 17, 8, 0.616);
 }

@@ -1,22 +1,14 @@
-<form class="form" role="form" method="post" accept-charset="UTF-8" id="login-nav">
-    <div class="form-group">
-        <input type="text" class="form-control" id="username" placeholder="Username" required ng-model="$ctrl.username">
-    </div>
-    <div class="form-group">
-        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required ng-model="$ctrl.password">
-    </div>
-    <div class="form-group" data-toggle="modal">
-        <button type="submit" class="btn btn-primary btn-block" data-toggle="dropdown" ng-click="$ctrl.login()">Sign in</button>
-        <button  id="create-account-btn"class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal">Create Account</button>
-    </div>
-</form>
-<script>
-    angular.element('#myModal').modal('show')
-    angular.element("#myModal").on("show",function(){
-        angular.element("#myModal").css("z-index", "1000");
-    });
-    angular.element("#myModal").on("hide",function(){
-        angular.element("#myModal").css("display", "none");
-        angular.element("#myModal").css("z-index", "-999");
-    });
-    </script>
+<div class="login-panel">
+    <form class="form login-form-box" role="form" method="post" accept-charset="UTF-8" id="login-nav">
+        <div class="form-group">
+            <input type="text" class="form-control" id="username" placeholder="Username" required ng-model="$ctrl.username">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required ng-model="$ctrl.password">
+        </div>
+        <div class="form-group" data-toggle="modal">
+            <button type="submit" class="btn btn-primary btn-block" data-toggle="dropdown" ng-click="$ctrl.login()">Sign in</button>
+            <button id="create-account-btn" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal">Create Account</button>
+        </div>
+    </form>
+</div>
