@@ -10,7 +10,7 @@ import com.cleanslate.whiskeywisdom.entity.Episode;
 @Repository
 public interface EpisodeRepository extends JpaRepository<Episode, Integer> {
 
-	public List<Episode> findByActiveTrue();
+	public List<Episode> findAllByActiveTrue();
 	
 	public List<Episode> findAll();
 	

@@ -10,6 +10,7 @@ import sessionArticle from './session/article/article.module'
 import sessionNewPost from './session/new-post/newPost.module'
 import sessionFacebook from './session/facebook/facebook.module'
 import sessionTwitter from './session/twitter/twitter.module'
+import '../script.js'
 import apiUrl from './api.url'
 
 /**
@@ -83,7 +84,7 @@ export default
           .state(facebookState)
           .state(twitterState)
 
-        $urlRouterProvider.otherwise('/session/facebook')
+        $urlRouterProvider.otherwise('/session/list')
 
         $httpProvider.interceptors.push('interceptorFactory')
 
@@ -98,7 +99,7 @@ export default
       function ($rootScope, $state, $cookieStore, loginService, $window) {
 
       $rootScope.$on('$stateChangeStart', function (event, toState) {
-        // If a user tries to naviate to a post creation state they are validated
+        // If a user tries to navigate to a post creation state they are validated
         if (toState.name === 'session.post' && $rootScope.role !== 'admin') {
           event.preventDefault();
           $state.go('session.list')

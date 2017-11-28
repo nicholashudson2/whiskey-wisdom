@@ -5,16 +5,15 @@ const loginController = ['loginService', '$state', '$rootScope', function (login
     this.rememberMe = false
 
     this.login = () => {
-        loginService.user().authenticate($.param({
-            username: this.username,
-            password: this.password
-        }), function (authenticationResult) {
-            delete this.password
+        loginService.user(this.username, this.password).authenticate((authenticationResult) => {
+            this.password = undefined
             if (authenticationResult.token) {
                 $rootScope.accessToken = authenticationResult.token
                 $rootScope.user = authenticationResult.user
                 $rootScope.roles = authenticationResult.user.roles
-
+                console.dir($rootScope.accessToken)
+                console.dir($rootScope.user)
+                console.dir($rootScope.roles)
                 if (this.rememberMe) {
                     $cookieStore.put('accessToken', accessToken)
                 }
@@ -27,8 +26,8 @@ const loginController = ['loginService', '$state', '$rootScope', function (login
                 //     loginService.role = user.role
                 // })
             }
-        });
-    };
+        })
+    }
 
 }]
 
