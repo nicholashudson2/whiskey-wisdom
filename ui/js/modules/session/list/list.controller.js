@@ -3,29 +3,35 @@ const listController = ['listService', '$state', '$rootScope', function (listSer
     this.listOfArticles = [
         {
             title: 'Article 6: Talking about other stuff',
-            synopsis: 'Greetings, we are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.'
+            content: 'Greetings, we are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.'
         },
         {
             title: 'Article 5: Talking about stuff',
-            synopsis: 'We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.'
+            content: 'We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.'
         },
         {
             title: 'Article 4: Talking about other stuff',
-            synopsis: 'We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.'
+            content: 'We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.'
         },
         {
             title: 'Article 3: Talking about other stuff',
-            synopsis: 'We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.'
+            content: 'We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.'
         },
         {
             title: 'Article 2: Talking about other stuff',
-            synopsis: 'We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.'
+            content: 'We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.'
         },
         {
             title: 'Article 1: Talking about stuff',
-            synopsis: 'We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.'
+            content: 'We are talking about lots and lots of stuff. Blah blah blah blah. Talking talking talking, blah blah blah blah blah.'
         }
     ]
+
+    this.getAllArticles = () => {
+        listService.getActiveArticles().then((result) => {
+            this.listOfArticles = result.data;
+        })
+    }
 
     this.viewArticle = (article) => {
         $rootScope.selectedArticle = article
