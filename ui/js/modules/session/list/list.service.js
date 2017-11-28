@@ -4,7 +4,7 @@ const listService = ['$http', 'apiUrl', function ($http, apiUrl) {
     this.apiUrl = apiUrl
 
     this.getActiveArticles = () => {
-        // return this.$http.get(`${this.apiUrl}/all`)
+        return this.$http.get(`${this.apiUrl}/episode/all`)
     }
 
 }]
