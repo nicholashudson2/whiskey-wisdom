@@ -21,7 +21,7 @@ public class EpisodeService {
 	}
 	
 	public List<EpisodeDto> getAllEpisodesByActiveTrue() {
-		return episodeMapper.toDtos(episodeRepo.findByActiveTrue());
+		return episodeMapper.toDtos(episodeRepo.findAllByActiveTrue());
 	}
 	
 	public List<EpisodeDto> getAll() {

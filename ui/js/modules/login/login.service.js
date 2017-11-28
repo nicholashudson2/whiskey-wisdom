@@ -4,14 +4,18 @@ const loginService = ['$http', 'apiUrl', '$resource', function ($http, apiUrl, $
     this.apiUrl = apiUrl
     this.$resource = $resource
 
-    this.user = () => {
-        return $resource(`${this.apiUrl}/user/:action`, {}, {
-            authenticate: {
-                method: 'POST',
-                params: { 'action': 'authenticate' },
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-            }
-        })
+    this.user = (user, pass) => {
+        return $resource(`${this.apiUrl}/home/:action`, {}, {
+                authenticate: {
+                    method: 'POST',
+                    params: {
+                        'action': 'authenticate',
+                        'username': user,
+                        'password': pass
+                    },
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+                }
+            })
     }
 
 }]
