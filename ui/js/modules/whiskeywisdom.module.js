@@ -65,10 +65,10 @@ export default
           component: 'newPostComponent'
         }
 
-        const facebookState = {
-          name: 'session.facebook',
-          url: '/facebook',
-          component: 'facebookComponent'
+        const loginState = {
+          name: 'session.login',
+          url: '/login',
+          component: 'loginComponent'
         }
 
         const twitterState = {
@@ -81,18 +81,12 @@ export default
           .state(listState)
           .state(articleState)
           .state(newPostState)
-          .state(facebookState)
+          .state(loginState)
           .state(twitterState)
 
-        $urlRouterProvider.otherwise('/session/list')
+        $urlRouterProvider.otherwise('/session/login')
 
         $httpProvider.interceptors.push('interceptorFactory')
-
-        // ezfb settings
-        ezfbProvider.setInitParams({
-          appId: 'whiskey-wisdom',
-          version: 'v2.4'
-        })
       }
     ])
     .run(['$rootScope', '$state', '$cookieStore', 'loginService', '$window',
@@ -135,15 +129,6 @@ export default
       }
 
       $rootScope.initialized = true
-      
-      // const initializeFacebook = function (d, s, id) {
-      //   var js, fjs = d.getElementsByTagName(s)[0];
-      //   if (d.getElementById(id)) return;
-      //   js = d.createElement(s); js.id = id;
-      //   js.src = 'https://connect.facebook.net/en_US/sdk.js';
-      //   fjs.parentNode.insertBefore(js, fjs);
-      // }
-      // initializeFacebook(document, 'script', 'facebook-jssdk')
     }])
     .constant('apiUrl', apiUrl)
     .name

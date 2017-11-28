@@ -81,6 +81,8 @@ const listController = ['listService', '$state', '$rootScope', function (listSer
         this.listOfArticles.splice(indexOfArticle, 1)
     }
 
+    this.getAllArticles()
+
 }]
 
 export default listController
