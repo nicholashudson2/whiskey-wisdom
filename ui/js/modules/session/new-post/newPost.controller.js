@@ -3,6 +3,7 @@ const newPostController = ['newPostService', '$state', function (newPostService,
     this.newPostService = newPostService
     this.$state = $state
 
+    
 }]
 
 export default newPostController

@@ -11,6 +11,7 @@ import sessionNewPost from './session/new-post/newPost.module'
 import '../script.js'
 import apiUrl from './api.url'
 
+
 /**
  * Exports the primary module which defines all states
  */
@@ -73,7 +74,7 @@ export default
           .state(newPostState)
           .state(loginState)
 
-        $urlRouterProvider.otherwise('/session/login')
+        $urlRouterProvider.otherwise('/session/new-post')
 
         $httpProvider.interceptors.push('interceptorFactory')
       }

@@ -10,6 +10,7 @@ require('angular-ui-router')
 require('angular-cookies')
 require('angular-resource')
 require('angular-easyfb')
+require('ng-quill')
 
 require('angular-material/angular-material.css')
 
@@ -22,3 +23,4 @@ require("../css/list.css")
 require("../css/article.css")
 require("../css/login.css")
 require("../css/footer.css")
+require("../css/newPost.css")
