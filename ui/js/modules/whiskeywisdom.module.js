@@ -79,7 +79,8 @@ export default
 
         $httpProvider.interceptors.push('interceptorFactory')
 
-        ngQuillConfigProvider.set(null, null, 'new post editor')        
+        // ngQuillConfigProvider.set(null, null, 'new post editor')
+        ngQuillConfigProvider.set(null, 'snow', 'new post editor', null, document.body, false)
       }
     ])
     .run(['$rootScope', '$state', '$cookieStore', 'loginService', '$window',
