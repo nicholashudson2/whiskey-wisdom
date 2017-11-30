@@ -34,15 +34,16 @@ export default
       sessionArticle,
       sessionNewPost
     ])
-    .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'ezfbProvider',
-      function ($stateProvider, $urlRouterProvider, $httpProvider, ezfbProvider) {
-
+    .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'ezfbProvider', 'ngQuillConfigProvider',
+      function ($stateProvider, $urlRouterProvider, $httpProvider, ezfbProvider, ngQuillConfigProvider) {
         const sessionState = {
           abstract: true,
           name: 'session',
           url: '/session',
           component: 'sessionComponent'
         }
+
+        ngQuillConfigProvider.set(null, null, 'custom placeholder')
 
         const listState = {
           name: 'session.list',
