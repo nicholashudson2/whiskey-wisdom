@@ -4,27 +4,27 @@ const newPostController = ['newPostService', '$state', '$scope', function (newPo
     this.$state = $state
     this.$scope = $scope
 
-    $scope.title = 'Quill works'
+    $scope.title = 'Whiskey Wisdom: New Post'
     $scope.readOnly = false
     $scope.test = ''
-    $scope.model = ''
     $scope.customOptions = [{
-        import: 'attributors/style/size',
-        whitelist: ['14', '16', '18', 'small', 'large', 'huge']
+      import: 'attributors/style/size',
+      whitelist: ['14', '16', '18', 'small', 'large', 'huge']
     }]
     $scope.customModules = {
-        toolbar: [
-            [{ 'size': [false, '14', '16', '18'] }]
-        ]
+      toolbar: [
+        [{'size': [false, '14', '16', '18']}]
+      ]
     }
+
     $scope.editorCreated = function (editor) {
-        console.log(editor)
+      console.log(editor)
     }
     $scope.contentChanged = function (editor, html, text, delta, oldDelta, source) {
-        console.log('editor: ', editor, 'html: ', html, 'text:', text, 'delta: ', delta, 'oldDelta:', oldDelta, 'source:', source)
+      console.log('editor: ', editor, 'html: ', html, 'text:', text, 'delta: ', delta, 'oldDelta:', oldDelta, 'source:', source)
     }
     $scope.selectionChanged = function (editor, range, oldRange, source) {
-        console.log('editor: ', editor, 'range: ', range, 'oldRange:', oldRange, 'source:', source)
+      console.log('editor: ', editor, 'range: ', range, 'oldRange:', oldRange, 'source:', source)
     }
 }]
 
