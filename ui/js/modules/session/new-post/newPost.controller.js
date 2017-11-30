@@ -4,6 +4,15 @@ const newPostController = ['newPostService', '$state', '$scope', function (newPo
     this.$state = $state
     this.$scope = $scope
 
+    this.contents = ""
+    this.active = true
+    this.deleted = false
+
+    this.postNewArticle = () => {
+        this.contents = $scope.title
+        this.newPostService.postNewArticle(this.contents, this.active, this.deleted)
+    }
+
     $scope.title = 'Whiskey Wisdom: New Post'
     $scope.readOnly = false
     $scope.test = ''
