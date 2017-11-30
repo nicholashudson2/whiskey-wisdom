@@ -11,6 +11,7 @@ import sessionNewPost from './session/new-post/newPost.module'
 import '../script.js'
 import apiUrl from './api.url'
 
+
 /**
  * Exports the primary module which defines all states
  */
@@ -35,13 +36,14 @@ export default
     ])
     .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'ngQuillConfigProvider',
       function ($stateProvider, $urlRouterProvider, $httpProvider, ngQuillConfigProvider) {
-
         const sessionState = {
           abstract: true,
           name: 'session',
           url: '/session',
           component: 'sessionComponent'
         }
+
+        ngQuillConfigProvider.set(null, null, 'custom placeholder')
 
         const listState = {
           name: 'session.list',
@@ -73,7 +75,7 @@ export default
           .state(newPostState)
           .state(loginState)
 
-        $urlRouterProvider.otherwise('/session/login')
+        $urlRouterProvider.otherwise('/session/new-post')
 
         $httpProvider.interceptors.push('interceptorFactory')
 

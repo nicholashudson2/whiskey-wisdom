@@ -4,7 +4,7 @@ import newPostService from './newPost.service.js'
 
 export default
   angular
-    .module('newPost', [])
+    .module('newPost', ['ngQuill'])
     .component('newPostComponent', newPostComponent)
     .controller('newPostController', newPostController)
     .service('newPostService', newPostService)

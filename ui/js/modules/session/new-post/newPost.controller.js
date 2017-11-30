@@ -2,6 +2,7 @@ const newPostController = ['newPostService', '$state', '$scope', function (newPo
 
     this.newPostService = newPostService
     this.$state = $state
+    this.$scope = $scope
 
     $scope.title = 'Whiskey Wisdom: New Post'
     $scope.readOnly = false
@@ -25,8 +26,6 @@ const newPostController = ['newPostService', '$state', '$scope', function (newPo
     $scope.selectionChanged = function (editor, range, oldRange, source) {
       console.log('editor: ', editor, 'range: ', range, 'oldRange:', oldRange, 'source:', source)
     }
-
-
 }]
 
 export default newPostController
