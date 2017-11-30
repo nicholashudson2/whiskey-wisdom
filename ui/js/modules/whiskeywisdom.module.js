@@ -24,7 +24,7 @@ export default
       'ngCookies',
       'ngResource',
       'ui.router',
-      'ezfb',
+      'ngQuill',
 
       interceptors,
       login,
@@ -33,8 +33,8 @@ export default
       sessionArticle,
       sessionNewPost
     ])
-    .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'ezfbProvider',
-      function ($stateProvider, $urlRouterProvider, $httpProvider, ezfbProvider) {
+    .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'ngQuillConfigProvider',
+      function ($stateProvider, $urlRouterProvider, $httpProvider, ngQuillConfigProvider) {
 
         const sessionState = {
           abstract: true,
@@ -76,6 +76,8 @@ export default
         $urlRouterProvider.otherwise('/session/login')
 
         $httpProvider.interceptors.push('interceptorFactory')
+
+        ngQuillConfigProvider.set(null, null, 'new post editor')        
       }
     ])
     .run(['$rootScope', '$state', '$cookieStore', 'loginService', '$window',
