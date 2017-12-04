@@ -18,12 +18,12 @@ import com.cleanslate.whiskeywisdom.service.EpisodeService;
 @RestController
 @CrossOrigin
 @RequestMapping("episode")
-public class EpisodeController {
+public class ArticleController {
 
 	EpisodeService episodeService;
 	EpisodeRepository episodeRepo;
 	
-	public EpisodeController(EpisodeService episodeService, EpisodeRepository episodeRepo) {
+	public ArticleController(EpisodeService episodeService, EpisodeRepository episodeRepo) {
 		this.episodeService = episodeService;
 		this.episodeRepo = episodeRepo;
 	}
