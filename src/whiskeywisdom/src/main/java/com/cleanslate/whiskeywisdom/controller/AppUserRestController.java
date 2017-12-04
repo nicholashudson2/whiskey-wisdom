@@ -21,18 +21,18 @@ import com.cleanslate.whiskeywisdom.repository.AppUserRepository;
 
 @RestController
 @RequestMapping(value = "admin")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:8080")
 public class AppUserRestController {
 
 	private AppUserRepository appUserRepository;
-	
+
 	public AppUserRestController(AppUserRepository appUserRepository) {
 		this.appUserRepository = appUserRepository;
 	}
- 
+
 	/**
 	 * Web service for getting all the appUsers in the application.
-	 * 
+	 *
 	 * @return list of all AppUser
 	 */
 //	@PreAuthorize("hasRole('ROLE_ADMIN')")
@@ -40,10 +40,10 @@ public class AppUserRestController {
 	public List<AppUser> users() {
 		return appUserRepository.findAll();
 	}
- 
+
 	/**
 	 * Web service for getting a user by his ID
-	 * 
+	 *
 	 * @param id
 	 *            appUser ID
 	 * @return appUser
@@ -58,7 +58,7 @@ public class AppUserRestController {
 			return new ResponseEntity<AppUser>(appUser, HttpStatus.OK);
 		}
 	}
- 
+
 	/**
 	 * Method for deleting a user by his ID
 	 * 

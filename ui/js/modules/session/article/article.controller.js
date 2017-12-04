@@ -2,7 +2,7 @@ const articleController = ['articleService', '$state', '$rootScope', function (a
 
     this.currentArticle = {
         title: '',
-        synopsis: ''
+        content: ''
     }
 
     this.initializeArticle = () => {

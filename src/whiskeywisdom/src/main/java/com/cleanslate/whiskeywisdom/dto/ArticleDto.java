@@ -3,16 +3,12 @@ package com.cleanslate.whiskeywisdom.dto;
 public class ArticleDto {
 
 	private long id;
-	
+
+	private boolean deleted;
+
 	private boolean active;
 
-	private String title;
-	
 	private String content;
-	
-	private String soundCloudUrl;
-	
-	private String itunesUrl;
 
 	public long getId() {
 		return id;
@@ -20,6 +16,14 @@ public class ArticleDto {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public boolean isDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
 	}
 
 	public boolean isActive() {
@@ -30,14 +34,6 @@ public class ArticleDto {
 		this.active = active;
 	}
 
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
 	public String getContent() {
 		return content;
 	}
@@ -45,22 +41,4 @@ public class ArticleDto {
 	public void setContent(String content) {
 		this.content = content;
 	}
-
-	public String getSoundCloudUrl() {
-		return soundCloudUrl;
-	}
-
-	public void setSoundCloudUrl(String soundCloudUrl) {
-		this.soundCloudUrl = soundCloudUrl;
-	}
-
-	public String getItunesUrl() {
-		return itunesUrl;
-	}
-
-	public void setItunesUrl(String itunesUrl) {
-		this.itunesUrl = itunesUrl;
-	}
-	
-	
 }

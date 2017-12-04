@@ -28,9 +28,9 @@ import com.cleanslate.whiskeywisdom.repository.AppUserRepository;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
+@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("home")
-@CrossOrigin
 public class HomeRestController {
 
 	private AppUserRepository appUserRepository;

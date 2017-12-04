@@ -17,7 +17,6 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@CrossOrigin
 public class AppErrorController implements ErrorController{
 
     /**

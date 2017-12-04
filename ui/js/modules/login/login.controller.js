@@ -29,14 +29,14 @@ const loginController = ['loginService', '$state', '$rootScope', function (login
         })
     }
 
-    angular.element('#myModal').modal('show')
-    angular.element("#myModal").on("show", function () {
-        angular.element("#myModal").css("z-index", "1000");
-    });
-    angular.element("#myModal").on("hide", function () {
-        angular.element("#myModal").css("display", "none");
-        angular.element("#myModal").css("z-index", "-999");
-    });
+    // angular.element('#myModal').modal('show')
+    // angular.element("#myModal").on("show", function () {
+    //     angular.element("#myModal").css("z-index", "1000");
+    // });
+    // angular.element("#myModal").on("hide", function () {
+    //     angular.element("#myModal").css("display", "none");
+    //     angular.element("#myModal").css("z-index", "-999");
+    // });
 
 }]
 

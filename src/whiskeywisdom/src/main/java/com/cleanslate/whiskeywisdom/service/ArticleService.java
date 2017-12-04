@@ -33,20 +33,19 @@ public class ArticleService {
 	}
 
 	public ArticleDto create(ArticleDto article) {
+		Article createdArticle = articleMapper.fromDto(article);
 		Article modifiedArticle = articleRepo.findById(article.getId());
 		if (modifiedArticle != null) {
 			if (modifiedArticle.isActive() == false) {
 				modifiedArticle.setActive(article.isActive());
-				modifiedArticle.setTitle(article.getTitle());
+				modifiedArticle.setDeleted(article.isDeleted());
 				modifiedArticle.setContent(article.getContent());
-				modifiedArticle.setSoundCloudUrl(article.getSoundCloudUrl());
-				modifiedArticle.setItunesUrl(article.getItunesUrl());
 				articleRepo.save(modifiedArticle);
 			}
 		} else {
-			articleRepo.save(articleMapper.fromDto(article));
+			createdArticle = articleRepo.save(articleMapper.fromDto(article));
 		}
-		return findById(article.getId());
+		return articleMapper.toDto(createdArticle);
 	}
 	
 }
