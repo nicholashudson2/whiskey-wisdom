@@ -1,5 +1,5 @@
-
 <div class="new-post-panel">
+<<<<<<< HEAD
     <ng-quill-editor class="new-post-editor" ng-model="title" placeholder="New Post" on-editor-created="editorCreated(editor)" on-content-changed="contentChanged(editor, html, text)"
         on-selection-changed="selectionChanged(editor, range, oldRange, source)">
     </ng-quill-editor>
@@ -9,4 +9,10 @@
         <div class="display-checkbox"><input class="checkbox" type="checkbox" name="active" checked>Display post?</div>
     </div>
 
+=======
+    <ng-quill-editor class="new-post-editor" ng-model="title" placeholder="override default placeholder" on-editor-created="editorCreated(editor)"
+        on-content-changed="contentChanged(editor, html, text)" on-selection-changed="selectionChanged(editor, range, oldRange, source)">
+    </ng-quill-editor>
+    <input type="submit" class="btn btn-info" id="SubmitButton" value="Submit New Post" ng-click="$ctrl.postNewArticle()"/>
+>>>>>>> fe7552988eb3d4e031db7caf85dbbc8f9fcde66c
 </div>

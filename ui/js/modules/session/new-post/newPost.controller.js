@@ -5,6 +5,7 @@ const newPostController = ['newPostService', '$state', '$scope', function (newPo
     this.$scope = $scope
 
     $scope.title = ''
+
     $scope.readOnly = false
     $scope.test = ''
     $scope.customOptions = [{
