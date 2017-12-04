@@ -5,15 +5,15 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.cleanslate.whiskeywisdom.entity.Episode;
+import com.cleanslate.whiskeywisdom.entity.Article;
 
 @Repository
-public interface EpisodeRepository extends JpaRepository<Episode, Integer> {
+public interface ArticleRepository extends JpaRepository<Article, Integer> {
 
-	public List<Episode> findAllByActiveTrue();
+	public List<Article> findAllByActiveTrue();
 	
-	public List<Episode> findAll();
+	public List<Article> findAll();
 	
-	public Episode findById(long id);
+	public Article findById(long id);
 
 }

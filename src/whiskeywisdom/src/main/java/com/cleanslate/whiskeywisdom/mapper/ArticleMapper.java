@@ -4,18 +4,18 @@ import java.util.List;
 
 import org.mapstruct.Mapper;
 
-import com.cleanslate.whiskeywisdom.dto.EpisodeDto;
-import com.cleanslate.whiskeywisdom.entity.Episode;
+import com.cleanslate.whiskeywisdom.dto.ArticleDto;
+import com.cleanslate.whiskeywisdom.entity.Article;
 
 @Mapper(componentModel="spring")
-public interface EpisodeMapper {
+public interface ArticleMapper {
 
-	Episode fromDto(EpisodeDto dto);
+	Article fromDto(ArticleDto dto);
 	
-	EpisodeDto toDto(Episode episode);
+	ArticleDto toDto(Article article);
 	
-	List<Episode> fromDtos(List<EpisodeDto> dtos);
+	List<Article> fromDtos(List<ArticleDto> dtos);
 	
-	List<EpisodeDto> toDtos(List<Episode> episodes);
+	List<ArticleDto> toDtos(List<Article> articles);
 	
 }

@@ -13,8 +13,8 @@ import javax.persistence.Transient;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-@Table(name = "Episode")
-public class Episode {
+@Table(name = "Article")
+public class Article {
 	
 	@Transient
 	java.util.Date today = new java.util.Date();
@@ -28,14 +28,8 @@ public class Episode {
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm")
 	private final Timestamp posted = new java.sql.Timestamp(today.getTime());
 
-	private String title;
-	
 	private String content;
 	
-	private String soundCloudUrl;
-	
-	private String itunesUrl;
-
 	public Episode(Date today, long id, boolean active, String title, String content, String soundCloudUrl,
 			String itunesUrl) {
 		super();
@@ -48,7 +42,7 @@ public class Episode {
 		this.itunesUrl = itunesUrl;
 	}
 
-	public Episode() {
+	public Article() {
 		super();
 	}
 
@@ -128,7 +122,7 @@ public class Episode {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Episode other = (Episode) obj;
+		Article other = (Article) obj;
 		if (id != other.id)
 			return false;
 		return true;

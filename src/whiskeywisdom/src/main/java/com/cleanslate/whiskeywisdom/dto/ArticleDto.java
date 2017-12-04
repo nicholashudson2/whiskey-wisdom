@@ -1,6 +1,6 @@
 package com.cleanslate.whiskeywisdom.dto;
 
-public class EpisodeDto {
+public class ArticleDto {
 
 	private long id;
 	

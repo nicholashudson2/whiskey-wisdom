@@ -4,49 +4,49 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.cleanslate.whiskeywisdom.dto.EpisodeDto;
-import com.cleanslate.whiskeywisdom.entity.Episode;
-import com.cleanslate.whiskeywisdom.mapper.EpisodeMapper;
-import com.cleanslate.whiskeywisdom.repository.EpisodeRepository;
+import com.cleanslate.whiskeywisdom.dto.ArticleDto;
+import com.cleanslate.whiskeywisdom.entity.Article;
+import com.cleanslate.whiskeywisdom.mapper.ArticleMapper;
+import com.cleanslate.whiskeywisdom.repository.ArticleRepository;
 
 @Service
-public class EpisodeService {
+public class ArticleService {
 
-	private EpisodeRepository episodeRepo;
-	private EpisodeMapper episodeMapper;
+	private ArticleRepository articleRepo;
+	private ArticleMapper articleMapper;
 
-	public EpisodeService(EpisodeRepository episodeRepo, EpisodeMapper episodeMapper) {
-		this.episodeRepo = episodeRepo;
-		this.episodeMapper = episodeMapper;
+	public ArticleService(ArticleRepository articleRepo, ArticleMapper articleMapper) {
+		this.articleRepo = articleRepo;
+		this.articleMapper = articleMapper;
 	}
 	
-	public List<EpisodeDto> getAllEpisodesByActiveTrue() {
-		return episodeMapper.toDtos(episodeRepo.findAllByActiveTrue());
+	public List<ArticleDto> getAllArticlesByActiveTrue() {
+		return articleMapper.toDtos(articleRepo.findAllByActiveTrue());
 	}
 	
-	public List<EpisodeDto> getAll() {
-		return episodeMapper.toDtos(episodeRepo.findAll());
+	public List<ArticleDto> getAll() {
+		return articleMapper.toDtos(articleRepo.findAll());
 	}
 	
-	public EpisodeDto findById(long id) {
-		return episodeMapper.toDto(episodeRepo.findById(id));
+	public ArticleDto findById(long id) {
+		return articleMapper.toDto(articleRepo.findById(id));
 	}
 
-	public EpisodeDto create(EpisodeDto episode) {
-		Episode modifiedEpisode = episodeRepo.findById(episode.getId());
-		if (modifiedEpisode != null) {
-			if (modifiedEpisode.isActive() == false) {
-				modifiedEpisode.setActive(episode.isActive());
-				modifiedEpisode.setTitle(episode.getTitle());
-				modifiedEpisode.setContent(episode.getContent());
-				modifiedEpisode.setSoundCloudUrl(episode.getSoundCloudUrl());
-				modifiedEpisode.setItunesUrl(episode.getItunesUrl());
-				episodeRepo.save(modifiedEpisode);
+	public ArticleDto create(ArticleDto article) {
+		Article modifiedArticle = articleRepo.findById(article.getId());
+		if (modifiedArticle != null) {
+			if (modifiedArticle.isActive() == false) {
+				modifiedArticle.setActive(article.isActive());
+				modifiedArticle.setTitle(article.getTitle());
+				modifiedArticle.setContent(article.getContent());
+				modifiedArticle.setSoundCloudUrl(article.getSoundCloudUrl());
+				modifiedArticle.setItunesUrl(article.getItunesUrl());
+				articleRepo.save(modifiedArticle);
 			}
 		} else {
-			episodeRepo.save(episodeMapper.fromDto(episode));
+			articleRepo.save(articleMapper.fromDto(article));
 		}
-		return findById(episode.getId());
+		return findById(article.getId());
 	}
 	
 }
