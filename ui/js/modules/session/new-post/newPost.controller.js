@@ -4,7 +4,7 @@ const newPostController = ['newPostService', '$state', '$scope', function (newPo
     this.$state = $state
     this.$scope = $scope
 
-    $scope.title = 'Whiskey Wisdom: New Post'
+    $scope.title = ''
     $scope.readOnly = false
     $scope.test = ''
     $scope.customOptions = [{

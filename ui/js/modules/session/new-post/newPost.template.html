@@ -1,8 +1,12 @@
 
 <div class="new-post-panel">
-    <ng-quill-editor class="new-post-editor" ng-model="title" placeholder="override default placeholder" on-editor-created="editorCreated(editor)" on-content-changed="contentChanged(editor, html, text)"
+    <ng-quill-editor class="new-post-editor" ng-model="title" placeholder="New Post" on-editor-created="editorCreated(editor)" on-content-changed="contentChanged(editor, html, text)"
         on-selection-changed="selectionChanged(editor, range, oldRange, source)">
     </ng-quill-editor>
 </ng-quill-editor>
+    <div class="submit-options">
+        <button class="save">Save & Close</button>
+        <div class="display-checkbox"><input class="checkbox" type="checkbox" name="active" checked>Display post?</div>
+    </div>
 
 </div>

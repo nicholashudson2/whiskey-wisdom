@@ -34,3 +34,18 @@
 .ql-container {
     height: calc(90vh - 70px);
 }
+
+.submit-options {
+    width: calc(100vw - 330px);
+    align-items: center;
+    justify-content: left;
+
+    background: white;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.display-checkbox, .save {
+    margin: 10px;
+}
