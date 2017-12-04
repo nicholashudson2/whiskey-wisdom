@@ -32,7 +32,7 @@ const newPostController = ['newPostService', '$state', '$scope', function (newPo
         console.log($scope.content)
         console.log($scope.display.enabled)
         newPostService.postNewArticle($scope.content, $scope.display.enabled, false)
-            .then($state.go('session.list'))
+            .then($state.go('session.list', {}, { reload: 'session.list' }))
     }
 }]
 
