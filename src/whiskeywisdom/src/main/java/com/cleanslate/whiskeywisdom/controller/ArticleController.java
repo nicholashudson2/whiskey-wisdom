@@ -11,50 +11,49 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cleanslate.whiskeywisdom.dto.EpisodeDto;
-import com.cleanslate.whiskeywisdom.repository.EpisodeRepository;
-import com.cleanslate.whiskeywisdom.service.EpisodeService;
+import com.cleanslate.whiskeywisdom.dto.ArticleDto;
+import com.cleanslate.whiskeywisdom.repository.ArticleRepository;
+import com.cleanslate.whiskeywisdom.service.ArticleService;
 
-@RestController
 @CrossOrigin
-@RequestMapping("episode")
+@RestController
+@RequestMapping("article")
 public class ArticleController {
 
-	EpisodeService episodeService;
-	EpisodeRepository episodeRepo;
+	ArticleService articleService;
+	ArticleRepository articleRepo;
 	
-	public ArticleController(EpisodeService episodeService, EpisodeRepository episodeRepo) {
-		this.episodeService = episodeService;
-		this.episodeRepo = episodeRepo;
+	public ArticleController(ArticleService articleService, ArticleRepository articleRepo) {
+		this.articleService = articleService;
+		this.articleRepo = articleRepo;
 	}
 	
 	
 	// Update to check for valid access token. If valid, return all non-deleted posts. If invalid/null, return all active & non-deleted posts.
 	@GetMapping("/all")
-	public List<EpisodeDto> getEpisodes() {
-		return episodeService.getAllEpisodesByActiveTrue();
+	public List<ArticleDto> getArticles() {
+		return articleService.getAllArticlesByActiveTrue();
 	}
 	
 //	@GetMapping("/admin")
-//	public List<EpisodeDto> adminGetEpisodes() {
-//		return episodeService.getAll();
+//	public List<ArticleDto> adminGetArticles() {
+//		return articleService.getAll();
 //	}
 	
 //	@GetMapping("/@{id}")
-//	public EpisodeDto findById(@PathVariable long id) {
-//		return episodeService.findById(id);
+//	public ArticleDto findById(@PathVariable long id) {
+//		return articleService.findById(id);
 //	}
-	
+
 	@PostMapping("/new")
-	public EpisodeDto create(@RequestBody EpisodeDto episode) {
-		episodeService.create(episode);
-		return episodeService.findById(episode.getId());
+	public ArticleDto create(@RequestBody ArticleDto article) {
+		return articleService.create(article);
 	}
 	
 	@PatchMapping("/@{id}")
-	public EpisodeDto update(@PathVariable long id, @RequestBody EpisodeDto episode) {
-		episodeService.create(episode);
-		return episodeService.findById(episode.getId());
+	public ArticleDto update(@PathVariable long id, @RequestBody ArticleDto article) {
+		articleService.create(article);
+		return articleService.findById(article.getId());
 	}
 	
 	// TODO: DeleteMapping to toggle deleted to true.

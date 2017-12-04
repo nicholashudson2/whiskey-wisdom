@@ -2,6 +2,7 @@ package com.cleanslate.whiskeywisdom.entity;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,34 +24,31 @@ public class Article {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 
+	private boolean deleted;
+
 	private boolean active;
 
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm")
 	private final Timestamp posted = new java.sql.Timestamp(today.getTime());
 
 	private String content;
-	
-	public Episode(Date today, long id, boolean active, String title, String content, String soundCloudUrl,
-			String itunesUrl) {
-		super();
+
+	public Article(Date today, boolean deleted, boolean active, String content) {
 		this.today = today;
-		this.id = id;
+		this.deleted = deleted;
 		this.active = active;
-		this.title = title;
 		this.content = content;
-		this.soundCloudUrl = soundCloudUrl;
-		this.itunesUrl = itunesUrl;
 	}
 
 	public Article() {
-		super();
+
 	}
 
-	public java.util.Date getToday() {
+	public Date getToday() {
 		return today;
 	}
 
-	public void setToday(java.util.Date today) {
+	public void setToday(Date today) {
 		this.today = today;
 	}
 
@@ -62,6 +60,14 @@ public class Article {
 		this.id = id;
 	}
 
+	public boolean isDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
+	}
+
 	public boolean isActive() {
 		return active;
 	}
@@ -70,12 +76,8 @@ public class Article {
 		this.active = active;
 	}
 
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
+	public Timestamp getPosted() {
+		return posted;
 	}
 
 	public String getContent() {
@@ -86,48 +88,17 @@ public class Article {
 		this.content = content;
 	}
 
-	public String getSoundCloudUrl() {
-		return soundCloudUrl;
-	}
-
-	public void setSoundCloudUrl(String soundCloudUrl) {
-		this.soundCloudUrl = soundCloudUrl;
-	}
-
-	public String getItunesUrl() {
-		return itunesUrl;
-	}
-
-	public void setItunesUrl(String itunesUrl) {
-		this.itunesUrl = itunesUrl;
-	}
-
-	public Timestamp getPosted() {
-		return posted;
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Article article = (Article) o;
+		return id == article.id;
 	}
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + (int) (id ^ (id >>> 32));
-		return result;
-	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Article other = (Article) obj;
-		if (id != other.id)
-			return false;
-		return true;
+		return Objects.hash(id);
 	}
-	
-	
-	
 }

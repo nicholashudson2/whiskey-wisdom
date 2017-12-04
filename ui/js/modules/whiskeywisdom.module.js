@@ -84,7 +84,7 @@ export default
       }
     ])
     .run(['$rootScope', '$state', '$cookieStore', 'loginService', '$window',
-      function ($rootScope, $state, $cookieStore, loginService, $window) {
+      function ($rootScope, $state, $cookieStore, loginService, newPostService, $window) {
 
       $rootScope.$on('$stateChangeStart', function (event, toState) {
         // If a user tries to navigate to a post creation state they are validated
