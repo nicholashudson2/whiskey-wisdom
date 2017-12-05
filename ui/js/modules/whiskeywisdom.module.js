@@ -24,6 +24,7 @@ export default
       'ngMessages',
       'ngCookies',
       'ngResource',
+      'ngSanitize',
       'ui.router',
       'ngQuill',
 

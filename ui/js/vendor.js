@@ -9,6 +9,7 @@ require('angular-messages')
 require('angular-ui-router')
 require('angular-cookies')
 require('angular-resource')
+require('angular-sanitize')
 require('angular-easyfb')
 require('ng-quill')
 
