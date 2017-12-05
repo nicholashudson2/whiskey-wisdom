@@ -10,6 +10,6 @@
                 <div class="article-button" ng-click="$ctrl.deleteArticle($index)"> X </div>
             </div>
         </div>
-        <div class="entry-synopsis" ng-click="$ctrl.viewArticle(article)"> {{ article.content }} </div>
+        <div class="entry-synopsis" ng-click="$ctrl.viewArticle(article)" ng-bind-html="article.content"></div>
     </div>
 </div>
