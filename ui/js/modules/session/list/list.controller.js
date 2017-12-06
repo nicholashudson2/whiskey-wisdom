@@ -83,6 +83,8 @@ const listController = ['listService', '$state', '$rootScope', function (listSer
 
     this.getAllArticles()
 
+
+
 }]
 
 export default listController

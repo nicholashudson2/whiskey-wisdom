@@ -15,7 +15,7 @@
     width: calc(100% - 30px);
 
     margin-left: 15px;
-    margin-right: 15px;
+    margin-right: 0px;
 
     display: flex;
     flex-direction: row;
@@ -28,12 +28,13 @@
 
 .content-buffer {
     height: 100%;
-    width: 20px;
+    width: 35px;
 }
 
 .content-panel {
     height: 100%;
-    width: calc(100vw - 300px);
+    width: calc(100vw - 315px);
+    background-color: lightgray;
 
     display: flex;
     flex-direction: column;

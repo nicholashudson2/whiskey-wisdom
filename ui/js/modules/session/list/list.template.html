@@ -1,7 +1,7 @@
 <div class="list-panel">
     <div class="list-entry" ng-repeat="article in $ctrl.listOfArticles">
         <div class="article-header">
-            <div class="article-title"> {{ article.title }} </div>
+            <!-- <div class="article-title"> {{ article.title }} </div> -->
             <div class="article-buttons">
                 <div class="article-button" ng-click="$ctrl.editArticle(article)"> E </div>
                 <div class="article-button" ng-click="$ctrl.moveArticle($index, 'up')"> ^ </div>
@@ -10,6 +10,6 @@
                 <div class="article-button" ng-click="$ctrl.deleteArticle($index)"> X </div>
             </div>
         </div>
-        <div class="entry-synopsis" ng-click="$ctrl.viewArticle(article)"> {{ article.content }} </div>
+        <div class="entry-synopsis" ng-click="$ctrl.viewArticle(article)" ng-bind-html="article.content"></div>
     </div>
 </div>

@@ -19,11 +19,11 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class WhiskeywisdomApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(WhiskeywisdomApplication.class, args);
-	}
-	
-	@Bean
+    public static void main(String[] args) {
+        SpringApplication.run(WhiskeywisdomApplication.class, args);
+    }
+
+    @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
 //                .forCodeGeneration(true)
@@ -36,12 +36,12 @@ public class WhiskeywisdomApplication {
     /**
      * By default, the SpringFox generated "swagger-ui" will not allow testing
      * of HEAD or OPTIONS http methods. This will enable them.
-     * 
+     *
      * @return UiConfiguration object used by SpringFox to configure the
-     *         swagger-ui
+     * swagger-ui
      */
     @Bean
     public UiConfiguration uiConfiguration() {
-        return new UiConfiguration(null, new String[] { "get", "post", "put", "delete", "patch", "options", "head" });
+        return new UiConfiguration(null, new String[]{"get", "post", "put", "delete", "patch", "options", "head"});
     }
 }
