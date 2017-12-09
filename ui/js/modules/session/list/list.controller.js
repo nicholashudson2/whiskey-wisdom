@@ -1,4 +1,4 @@
-const listController = ['listService', '$state', '$rootScope', function (listService, $state, $rootScope) {
+const listController = ['listService', '$state', '$rootScope', '$sce', function (listService, $state, $rootScope, $sce) {
 
     this.listOfArticles = [
         {
@@ -42,6 +42,11 @@ const listController = ['listService', '$state', '$rootScope', function (listSer
         $rootScope.selectedArticle = article
         $state.go('session.article')
     }
+
+	this.trustAsHtml = (content) => {
+        console.log(content)
+		return $sce.trustAsHtml(content)
+	}
 
     this.moveArticle = (indexOfArticle, direction) => {
         if(direction === 'up') {
