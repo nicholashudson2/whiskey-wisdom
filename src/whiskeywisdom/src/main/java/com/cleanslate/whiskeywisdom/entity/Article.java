@@ -18,18 +18,23 @@ public class Article {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column
     private boolean deleted;
 
+    @Column
     private boolean active;
 
+    @Column
     private String author;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private final Timestamp posted = new java.sql.Timestamp(today.getTime());
 
+    @Column
     private String title;
 
-    @Column(columnDefinition="TEXT")
+    @Lob
+    @Column
     private String content;
 
     public Article() {
