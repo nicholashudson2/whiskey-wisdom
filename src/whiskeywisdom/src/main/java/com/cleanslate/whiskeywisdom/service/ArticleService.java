@@ -39,8 +39,10 @@ public class ArticleService {
 			if (modifiedArticle.isActive() == false) {
 				modifiedArticle.setActive(article.isActive());
 				modifiedArticle.setDeleted(article.isDeleted());
+				modifiedArticle.setAuthor(article.getAuthor());
+				modifiedArticle.setTitle(article.getTitle());
 				modifiedArticle.setContent(article.getContent());
-				articleRepo.save(modifiedArticle);
+				createdArticle = articleRepo.save(modifiedArticle);
 			}
 		} else {
 			createdArticle = articleRepo.save(articleMapper.fromDto(article));

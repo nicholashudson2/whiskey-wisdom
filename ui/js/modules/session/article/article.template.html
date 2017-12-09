@@ -10,6 +10,6 @@
                 <div class="article-button"> X </div>
             </div>
         </div>
-        <div class="article-synopsis" ng-bind-html="$ctrl.currentArticle.content"></div>
+        <div class="article-synopsis" ng-bind-html="$ctrl.trustAsHtml($ctrl.currentArticle.content)"></div>
     </div>
 </div>

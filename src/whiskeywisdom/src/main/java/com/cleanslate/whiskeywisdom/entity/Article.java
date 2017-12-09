@@ -1,104 +1,122 @@
 package com.cleanslate.whiskeywisdom.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Objects;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Transient;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 @Entity
 @Table(name = "Article")
 public class Article {
-	
-	@Transient
-	java.util.Date today = new java.util.Date();
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long id;
+    @Transient
+    java.util.Date today = new java.util.Date();
 
-	private boolean deleted;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
-	private boolean active;
+    private boolean deleted;
 
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm")
-	private final Timestamp posted = new java.sql.Timestamp(today.getTime());
+    private boolean active;
 
-	private String content;
+    private String author;
 
-	public Article(Date today, boolean deleted, boolean active, String content) {
-		this.today = today;
-		this.deleted = deleted;
-		this.active = active;
-		this.content = content;
-	}
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
+    private final Timestamp posted = new java.sql.Timestamp(today.getTime());
 
-	public Article() {
+    private String title;
 
-	}
+    @Column(columnDefinition="TEXT")
+    private String content;
 
-	public Date getToday() {
-		return today;
-	}
+    public Article() {
+        super();
+    }
 
-	public void setToday(Date today) {
-		this.today = today;
-	}
+    public Article(Date today, boolean deleted, boolean active, String author, String title, String content) {
+        super();
+        this.today = today;
+        this.deleted = deleted;
+        this.active = active;
+        this.author = author;
+        this.title = title;
+        this.content = content;
+    }
 
-	public long getId() {
-		return id;
-	}
+    public Date getToday() {
+        return today;
+    }
 
-	public void setId(long id) {
-		this.id = id;
-	}
+    public void setToday(Date today) {
+        this.today = today;
+    }
 
-	public boolean isDeleted() {
-		return deleted;
-	}
+    public long getId() {
+        return id;
+    }
 
-	public void setDeleted(boolean deleted) {
-		this.deleted = deleted;
-	}
+    public void setId(long id) {
+        this.id = id;
+    }
 
-	public boolean isActive() {
-		return active;
-	}
+    public boolean isDeleted() {
+        return deleted;
+    }
 
-	public void setActive(boolean active) {
-		this.active = active;
-	}
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
+    }
 
-	public Timestamp getPosted() {
-		return posted;
-	}
+    public boolean isActive() {
+        return active;
+    }
 
-	public String getContent() {
-		return content;
-	}
+    public void setActive(boolean active) {
+        this.active = active;
+    }
 
-	public void setContent(String content) {
-		this.content = content;
-	}
+    public String getAuthor() {
+        return author;
+    }
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
-		Article article = (Article) o;
-		return id == article.id;
-	}
+    public void setAuthor(String author) {
+        this.author = author;
+    }
 
-	@Override
-	public int hashCode() {
+    public Timestamp getPosted() {
+        return posted;
+    }
 
-		return Objects.hash(id);
-	}
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Article article = (Article) o;
+        return id == article.id;
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id);
+    }
 }

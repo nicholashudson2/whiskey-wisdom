@@ -1,4 +1,4 @@
-const articleController = ['articleService', '$state', '$rootScope', function (articleService, $state, $rootScope) {
+const articleController = ['articleService', '$state', '$rootScope', '$sce', function (articleService, $state, $rootScope, $sce) {
 
     this.currentArticle = {
         title: '',
@@ -12,6 +12,11 @@ const articleController = ['articleService', '$state', '$rootScope', function (a
         else {
             this.currentArticle = $rootScope.selectedArticle
         }
+    }
+
+    this.trustAsHtml = (content) => {
+        console.log(content)
+        return $sce.trustAsHtml(content)
     }
 
     this.initializeArticle()

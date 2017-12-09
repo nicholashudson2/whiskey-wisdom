@@ -8,6 +8,10 @@ public class ArticleDto {
 
 	private boolean active;
 
+	private String author;
+
+	private String title;
+
 	private String content;
 
 	public long getId() {
@@ -34,6 +38,22 @@ public class ArticleDto {
 		this.active = active;
 	}
 
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
 	public String getContent() {
 		return content;
 	}
@@ -41,4 +61,5 @@ public class ArticleDto {
 	public void setContent(String content) {
 		this.content = content;
 	}
+
 }
