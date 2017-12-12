@@ -83,6 +83,7 @@ public class AppUserRestController {
 //	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/users", method = RequestMethod.POST)
 	public ResponseEntity<AppUser> createUser(@RequestBody AppUser appUser) {
+		AppUser user = new AppUser();
 		if (appUserRepository.findByUsername(appUser.getUsername()) != null) {
 			throw new RuntimeException("Username already exist");
 		}

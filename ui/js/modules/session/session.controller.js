@@ -17,12 +17,12 @@ const sessionController = ['sessionService', '$state', '$window', function (sess
                 angular.element('.header').css('height', 220 - logoShrink + 'px')
                 angular.element('.logo').css('width', 200 - logoShrink + 'px')
                 angular.element('.logo').css('background-size', 200 - logoShrink + 'px')
-                angular.element('.iframe').css('height', 'calc(100vh - ' + (240 - logoShrink) + 'px)')
+                // angular.element('.iframe').css('height', 'calc(100vh - ' + (240 - logoShrink) + 'px)')
             // }
         });
     }
 
-    // sessionInitializer()
+    sessionInitializer()
 }]
 
 export default sessionController

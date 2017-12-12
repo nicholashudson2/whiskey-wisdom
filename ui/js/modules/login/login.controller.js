@@ -29,6 +29,10 @@ const loginController = ['loginService', '$state', '$rootScope', function (login
         })
     }
 
+	this.newUser = () => {
+		$state.go('session.article')
+	}
+
     // angular.element('#myModal').modal('show')
     // angular.element("#myModal").on("show", function () {
     //     angular.element("#myModal").css("z-index", "1000");
