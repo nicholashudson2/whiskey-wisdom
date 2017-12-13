@@ -18,6 +18,16 @@ const newPostController = ['newPostService', '$state', '$scope', function (newPo
         ]
     }
 
+    var ckeditorField = function (key) {
+		return [{
+			className: "col-md-12",
+			"type": "ckeditor",
+			"key": key
+		}];
+	};
+
+	$scope.field_name = ckeditorField("my_model_key");
+
     $scope.editorCreated = function (editor) {
         console.log('editor: ', editor)
     }
