@@ -7,7 +7,7 @@
     justify-content: flex-start;
     align-items: center;
   
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .center-column {
@@ -34,7 +34,6 @@
 .content-panel {
     height: 100%;
     width: calc(100vw - 315px);
-    background-color: lightgray;
 
     display: flex;
     flex-direction: column;
