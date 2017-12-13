@@ -1,15 +1,22 @@
 <div class="list-panel">
+    <div class="articles-title"> Articles </div>
     <div class="list-entry" ng-repeat="article in $ctrl.listOfArticles">
-        <div class="article-header">
-            <!-- <div class="article-title"> {{ article.title }} </div> -->
-            <div class="article-buttons">
-                <div class="article-button" ng-click="$ctrl.editArticle(article)"> E </div>
-                <div class="article-button" ng-click="$ctrl.moveArticle($index, 'up')"> ^ </div>
-                <div class="article-button" ng-click="$ctrl.moveArticle($index, 'down')"> v </div>
-                <div class="article-button" ng-click="$ctrl.deactivateArticle($index)"> - </div>
-                <div class="article-button" ng-click="$ctrl.deleteArticle($index)"> X </div>
+        <div class="entry-panel">
+            <div class="entry-logo"></div>
+            <div class="entry-content">
+                <div class="entry-header">
+                    <div class="entry-date"> {{ article.date }} </div>
+                    <div class="article-buttons">
+                        <div class="article-button article-edit" ng-click="$ctrl.editArticle(article)"></div>
+                        <div class="article-button article-up" ng-click="$ctrl.moveArticle($index, 'up')"></div>
+                        <div class="article-button article-down" ng-click="$ctrl.moveArticle($index, 'down')"></div>
+                        <div class="article-button article-deactivate" ng-click="$ctrl.deactivateArticle($index)"></div>
+                        <div class="article-button article-delete" ng-click="$ctrl.deleteArticle($index)"></div>
+                    </div>
+                </div>
+                <div class="entry-title" ng-click="$ctrl.viewArticle(article)" ng-bind-html="$ctrl.trustAsHtml(article.title)"></div>
             </div>
         </div>
-        <div class="entry-synopsis" ng-click="$ctrl.viewArticle(article)" ng-bind-html="$ctrl.trustAsHtml(article.content)"></div>
+        <div class="entry-divider"></div>
     </div>
 </div>

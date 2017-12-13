@@ -11,8 +11,10 @@
     justify-content: center;
     align-items: center;
     
-    background: rgba(32, 17, 8, 0.616);
-    border-radius: 5px; 
+    background-image: url("../img/speckledBackground.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .new-post-editor {
@@ -48,4 +50,17 @@
 
 .display-checkbox, .save {
     margin: 10px;
+}
+
+ng-quill-editor.ng-invalid .ql-container {
+    border: 1px dashed red;
+}
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="14"]::before {
+    content: '14';
+}
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="16"]::before {
+    content: '16';
+}
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="18"]::before {
+    content: '18';
 }
